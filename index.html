@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminPanel</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <section id="sidebar">
+        <a href="#" class="brand"><i class="fa-solid fa-globe icon"></i> Logo</a>
+        <ul class="side-menu">
+            <li><a href="" class="nav-link active" data-page="dashboard"><i
+                        class="fa-regular fa-newspaper icon"></i> GÜNCEL DURUM </a></li>
+            <li><a href="" class="nav-link" data-page="satislar"><i class="fa-solid fa-arrow-trend-up icon"></i>
+                    SATIŞLAR <i class="fa-solid fa-caret-down icon-right"></i></a>
+                <ul class="side-dropdown">
+                    <li><a href="" class="nav-link item active" data-page="teklifler"><i
+                                class="fa-solid fa-file"></i>Teklifler</a></li>
+                    <li><a href="#" class=" nav-link item" data-page="faturalar"><i
+                                class="fa-solid fa-chart-line"></i>Faturalar</a></li>
+                    <li><a href="#" class="nav-link item"><i class="fa-solid fa-chart-line"></i>Müşteriler</a></li>
+                    <li><a href="#" class="nav-link item"><i class="fa-solid fa-square-poll-vertical"></i>Satışlar
+                            Raporu</a></li>
+                    <li><a href="#" class="nav-link item"><i class="fa-solid fa-square-poll-vertical"></i>Tahsilatlar
+                            Raporu</a></li>
+                    <li><a href="#" class="nav-link item"><i class="fa-solid fa-square-poll-vertical"></i>Gelir Gider
+                            Raporu</a> </li>
+                </ul>
+            </li>
+            <li><a href="#users" class="nav-link" data-page="kullanicilar"><i class="fa-solid fa-users icon"></i>
+                    KULLANICILAR </a></li>
+            <li><a href="#" class="nav-link"><i class="fa-solid fa-arrow-trend-down icon"></i> GİDERLER<i
+                        class="fa-solid fa-caret-down icon-right"></i></a></li>
+            <li><a href="#" class="nav-link"><i class="fa-solid fa-money-bill-1 icon"></i> NAKİT <i
+                        class="fa-solid fa-caret-down icon-right"></i></a></li>
+            <li><a href="#"" class=" nav-link"><i class="fa-solid fa-cubes icon"></i> STOK <i
+                        class="fa-solid fa-caret-down icon-right"></i></a></li>
+            <li><a href="#" class="nav-link"><i class="fa-solid fa-plug icon"></i> UYGULAMALAR </a></li>
+            <li><a href="#" class="nav-link"><i class="fa-solid fa-basket-shopping icon"></i> PAZARYERİ </a></li>
+            <li><a href="#" class="nav-link"><i class="fa-solid fa-angles-left icon"></i> MENÜYÜ SAKLA </a></li>
+            <li><a href="#" class="nav-link"><i class="fa-solid fa-gear icon"></i> AYARLAR <i class="fa-solid fa-caret-down icon-right"></i></a></li>
+
+    </section>
+
+    <section id="content">
+        <nav>
+            <a href="#" class="nav-btn"><i class="fa-solid fa-gift icon"></i>TavsiyeEt,Kazan! </a>
+            <a href="#" class="nav-btn"><i class="fa-regular fa-comments icon"></i></a>
+
+            <div class="profile">
+                <span>Ahmet Raşit Kara</span>
+                <img src="img/profile.png" alt="">
+                <ul class="profile-link">
+                    <li><a href="#"><i class="fa-solid fa-user icon"></i>Profile</a></li>
+                    <li><a href="#"><i class="fa-solid fa-gears icon"></i>Ayarlar</a></li>
+                    <li><a href="login.html"><i class="fa-solid fa-right-to-bracket icon"></i>Çıkış Yap</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-content">
+            <!-- İçerik buraya dinamik olarak yüklenecek -->
+        </div>
+    </section>
+
+
+
+
+    <!----- Şablonlar -->
+
+
+    <!---------------------- GÜNCEL DURUM SAYFASI ----------------------->
+    <template id="dashboard-template">
+        <div class="container">
+            <h2>Güncel Durum</h2>
+        </div>
+    </template>
+
+    <!---------------------- TEKLİFLER SAYFASI --------------------->
+    <template id="teklifler-template">
+        <h2>Teklifler</h2>
+        <div class="multi-button">
+            <div class="buttons">
+                <button class="offer-btn active" data-content="cevap-beklenenler">CEVAP BEKLENENLER</button>
+                <button class="offer-btn" data-content="onaylananlar">ONAYLANANLAR</button>
+                <button class="offer-btn" data-content="reddedilenler">REDDEDİLENLER</button>
+                <button class="offer-btn" data-content="tumu">TÜMÜ</button>
+            </div>
+            <form>
+                <div class="form-groupone">
+                    <input type="text" placeholder="Ara...">
+                    <i class="fa-solid fa-magnifying-glass icon"></i>
+                </div>
+            </form>
+            <div class="btn-yeni">
+                <button class="newOffer" data-bs-toggle="modal" data-bs-target="#myModal">YENİ TEKLİF OLUŞTUR</button>
+            </div>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        style="margin-bottom: 10px">X</button>
+                    <h2 style="margin-bottom: 10px; margin-left: 0px;">Yeni Teklif Oluştur</h2>
+                    <label for="offerName">Teklif İsmi:</label>
+                    <input type="text" id="offerName" required>
+                    <br>
+                    <label for="invoiceStatus">Fatura Durumu:</label>
+                    <input type="text" id="invoiceStatus" required>
+                    <br>
+                    <label for="editDate">Düzenleme Tarihi:</label>
+                    <input type="date" id="editDate" required>
+                    <br>
+                    <label for="offerTO">Teklif Toplamı:</label>
+                    <input type="number" id="offerTO" required>
+                    <br>
+                    <button type="submit" id="addOfferButton" onclick="addOffer()" class="form-buton" data-bs-dismiss="modal"> Teklifi Ekle </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="teklifler-content">
+            <template id="cevap-beklenenler-template">
+                <div class="teklifler-container">
+                    <table class="offerTable">
+                        <thead>
+                            <tr>
+                                <th>TEKLİF İSMİ</th>
+                                <th>FATURA</th>
+                                <th>DÜZENLEME TARİHİ</th>
+                                <th>TEKLİF TOPLAMI</th>
+                            </tr>
+                        </thead>
+                        <tbody id="offerTableBody">
+                            <tr>
+                                <td>
+                                    <a href="#"> <i class="fas fa-file"></i>KAZALI ARAÇ FİYAT TEKLİFİ</a>
+                                    <p style="margin-left: 14px;">P26S002 (Eskişehir İl Sağlık Müdürlüğü)</p>
+                                </td>
+                                <td>Fatura Oluşturulmadı
+                                    <div>
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <button style="border-radius: 10px; border: 1px solid #ddd;padding: 2px 5px;"><i
+                                                class="fa-solid fa-comment"></i>Cevap bekleniyor</button>
+                                    </div>
+                                </td>
+                                <td>10 Haziran 2024<p style="color: red;">(20 gün önce)</p>
+                                </td>
+                                <td>8.333,61€</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#"> <i class="fas fa-file"></i>KAZALI ARAÇ FİYAT TEKLİFİ</a>
+                                    <p style="margin-left: 14px;">P26S002 (Eskişehir İl Sağlık Müdürlüğü)</p>
+                                </td>
+                                <td>Fatura Oluşturulmadı
+                                    <div>
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <button style="border-radius: 10px; border: 1px solid #ddd;padding: 2px 5px;"><i
+                                                class="fa-solid fa-comment"></i>Cevap bekleniyor</button>
+                                    </div>
+                                </td>
+                                <td>10 Haziran 2024<p style="color: red;">(20 gün önce)</p>
+                                </td>
+                                <td>8.333,61€</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul class="offer-pagination">
+                        <li class="offer-page-item"><a class="offer-page-link" href="#">&laquo;</a></li>
+                        <li class="offer-page-item active"><a class="offer-page-link" href="#">1</a></li>
+                        <li class="offer-page-item"><a class="offer-page-link" href="#">2</a></li>
+                        <li class="offer-page-item"><a class="offer-page-link" href="#">3</a></li>
+                        <li class="offer-page-item"><a class="offer-page-link" href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+            </template>
+
+            <template id="onaylananlar-template">
+
+            </template>
+            <template id="reddedilenler-template">
+
+            </template>
+            <template id="tumu-template">
+
+            </template>
+
+    </template>
+
+    <!----------------------- SATIŞLAR SAYFASI ------------------>
+    <template id="satislar-template">
+        <h2>Satışlar</h2>
+        <!-- Satışlar içeriği buraya gelecek -->
+    </template>
+
+    <!---------------------- KULLANICILAR SAYFASI ---------------->
+    <template id="kullanicilar-template">
+        <h2>Kullanıcılar</h2>
+        <div class="user-container">
+            <div class="user-ekle">
+                <h3>Kullanıcı Ekle</h3>
+                <form>
+                    <div class="user-form-group">
+                        <input type="text" class="form-control" id="user_ad" placeholder="Ad" required>
+                    </div>
+                    <div class="user-form-group">
+                        <input type="text" class="form-control" id="user_soyad" placeholder="Soyad" required>
+                    </div>
+                    <div class="user-form-group">
+                        <input type="tel" class="form-control" id="user_phone" placeholder="5xx-xxx-xx-xx" required />
+                    </div>
+                    <div class="user-form-group">
+                        <input type="email" class="form-control" id="user_email" placeholder="E-mail" required />
+                    </div>
+                    <a href="#" class="btn btn-primary" onclick="btnClick()"> Kullanıcı Ekle</a>
+                </form>
+            </div>
+            <div class="user-listele">
+                <h3>Kullanıcılar</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Kullanıcı Adı</td>
+                            <td>Kullanıcı Soyadı</td>
+                            <td>Telefon Numarası</td>
+                            <td>E-mail Adres</td>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr>
+                            <th>Merve</th>
+                            <th>Arslan</th>
+                            <th>509 383 74 22</th>
+                            <th>merve_arslan@gmail.com</th>
+                        </tr>
+                        <tr>
+                            <th>Ece</th>
+                            <th>Kaya</th>
+                            <th>509 383 74 22</th>
+                            <th>ecekaya@gmail.com</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </template>
+
+    <!------------------ FATURALAR SAYFASI --------------------------->
+    <template id="faturalar-template">
+        <h2>Yeni Fatura</h2>
+        <div class="fatura-container">
+            <div class="form-group">
+                <i class="fa-regular fa-file-lines"></i>
+                <label for="fatura-ismi">Fatura İsmi</label>
+                <input type="text" id="fatura-ismi" name="fatura-ismi">
+            </div>
+
+            <div class="form-group">
+                <i class="fa-solid fa-user"></i>
+                <label for="musteri">Müşteri</label>
+                <input type="text" id="musteri" name="musteri"> 
+            </div>
+
+            <div class="form-group">
+                <i class="fa-solid fa-circle-question"></i>
+                <label>Tahsilat Durumu</label>
+                <div class="tahsil-group">
+                    <input type="radio" id="tahsil-edilecek" name="tahsil-durumu" value="tahsil-edilecek">
+                    <label for="tahsil-edilecek">TAHSİL EDİLECEK</label>
+                    <div class="vertical-divider"></div>
+                    <input type="radio" id="tahsil-edildi" name="tahsil-durumu" value="tahsil-edildi">
+                    <label for="tahsil-edildi">TAHSİL EDİLDİ</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <i class="fa-regular fa-calendar-check"></i>
+                <label for="duzenleme-tarihi">Düzenleme Tarihi</label>
+                <input type="date" id="duzenleme-tarihi" name="duzenleme-tarihi">
+            </div>
+
+            <div class="form-group">
+                <i class="fa-solid fa-bell"></i>
+                <label for="vade-tarihi">Vade Tarihi</label>
+                <input type="date" id="vade-tarihi" name="vade-tarihi">
+                <select id="vade-gunu" name="vade-gunu">
+                    <option value="aynı gün">Aynı Gün</option>
+                    <option value="7 gün">7 Gün</option>
+                    <option value="14 gün">14 Gün</option>
+                    <option value="30 gün">30 Gün</option>
+                    <option value="60 gün">60 Gün</option>
+                </select>
+
+            </div>
+
+            <div class=" form-group button-group">
+                <button  d="fatura-no-ekle"><i class="fa-solid fa-plus"></i>FATURA NO EKLE</button>
+                <button id="döviz-degistir"><i class="fa-solid fa-plus"></i>DÖVİZ DEĞİŞTİR</button>
+                <button  id="siparıs-bilgisi-ekle"><i class="fa-solid fa-plus"></i>SİPARİŞ BİLGİSİ
+                    EKLE</button>
+            </div>
+
+            <div class="form-group">
+                <i class="fa-solid fa-pen"></i>
+                <label for="fatura-notu">Fatura Notu</label>
+                <textarea id="fatura-notu" name="fatura-notu"></textarea>
+            </div>
+
+            <div class="form-group button-group">
+                <button id="iban-ekle"><i class="fa-solid fa-plus"></i>IBAN BİLGİSİ EKLE</button>
+            </div>
+
+            <div class="form-group">
+                <i class="fa-solid fa-cubes"></i>
+                <label for="stok-takibi">Stok Takibi</label>
+                <div class="stok-group">
+                    <div class="stok-group-left" style="margin-right: 10px;">
+                        <input type="radio" id="tahsil-edilecek" name="tahsil-durumu" value="tahsil-edilecek">
+                        <label for="tahsil-edilecek">STOK ÇIKIŞI YAPILSIN </label>
+                        <P>Stok çıkışı fatura ile yapılır.Daha sonra faturadan irsaliye oluşturulamaz ve fatura ile
+                            irsaliye eşleştirilemez.</P>
+                    </div>
+                    <div class="vertical-dividerStok"></div>
+                    <div class="stok-group-right">
+                        <input type="radio" id="tahsil-edildi" name="tahsil-durumu" value="tahsil-edildi">
+                        <label for="tahsil-edildi">STOK ÇIKIŞI YAPILMASIN</label>
+                        <p>Stok takibi gerektirmeyen ürünler için kullanılır.Daha sonra faturayle ilişkili irsaliye
+                            oluşturulabilir.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bill-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>HİZMET/ÜRÜN</th>
+                            <th>MİKTAR</th>
+                            <th>ÜRÜN</th>
+                            <th>BR. FİYAT</th>
+                            <th>VERGİ</th>
+                            <th>TOPLAM</th>
+                            <th>İŞLEM</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bill-body">
+                        <tr>
+                            <td><input type="text" class="product-name"></td>
+                            <td><input type="number" class="product-quantity" value="1.00"></td>
+                            <td>
+                                <select class="product-unit">
+                                    <option value="adet">Adet</option>
+                                </select>
+                            </td>
+                            <td> <input type="number" class="product-quantity" value="0.00"></td>
+                            <td>
+                                <select class="product-unit">
+                                    <option value="adet">%20</option>
+                                    <option value="adet">%40</option>
+                                    <option value="adet">%50</option>
+                                </select>
+                            </td>
+                            <td><input type="number" class="product-quantity" value="1.00"></td>
+                            <td>
+                                <button class="bill-btn" id="add" onclick="createTr('bill-body')"><i class="fa-solid fa-plus"></i></button>
+                                <button class="bill-btn" id="remove" onclick="removeTr(this)"><i class="fa-solid fa-xmark"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <button class="add-row" id="add-row-btn" onclick="createTr('bill-body')"><i class="fa-solid fa-plus"></i> Yeni Satır Ekle</button>
+
+                <div class="totals-section">
+                    <div class="totals-row">
+                        <span>Ara Toplam:</span>
+                        <input type="number" id="ara-toplam" class="subtotal" value="0.00" readonly>
+                    </div>
+                    <div class="totals-row">
+                        <span>Toplam KDV:</span>
+                        <input type="number" id="toplam-kdv" class="total-vat" value="0.00" readonly>
+                    </div>
+                    <div class="totals-row">
+                        <span>Genel Toplam:</span>
+                        <input type="number" id="genel-toplam" class="grand-total" value="0.00" readonly>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Kaydet</button>
+                        <button type="submit">Vazgeç</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="js/script.js"></script>
+</body>
+
+</html>
