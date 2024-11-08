@@ -6,3 +6,5 @@ Based on the work I received through the Bionluk platform, I coded the desired p
 ![Görsel-3](./img/adminPanel-3.png)
 ![Görsel-4](./img/adminPanel-4.png)
 ![Görsel-5](./img/adminPanel-5.png)
+![Görsel-6](./img/adminPanel-6.png)
+![Görsel-7](./img/adminPanel-7.png)
